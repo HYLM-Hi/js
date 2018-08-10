@@ -1,0 +1,36 @@
+<view class="section">
+  <view class="head">试试什么职业最适合你</view>
+  <!-- rang-key选择框中选择数组中的哪一项 -->
+  <picker bindchange="bindPickerChange" range="{{useData[0].array}}" range-key='name'>
+    <view class="picker">
+      学  历 ： {{useData[0].array[useData[0].index].name}}
+    </view>
+  </picker>
+  <picker bindchange="sex"  range="{{useData[1].array}}" range-key='name'>
+    <view class="picker">
+      性  别 ： {{useData[1].array[useData[1].index].name}}
+    </view>
+  </picker>
+   <picker bindchange="age"range="{{useData[2].array}}" range-key='name'>
+    <view class="picker">
+      年  龄 ： {{useData[2].array[useData[2].index].name}}
+    </view>
+  </picker>
+   <picker bindchange="basics" range="{{useData[3].array}}" range-key='name'>
+    <view class="picker">
+      基  础 ：  {{useData[3].array[useData[3].index].name}}
+    </view>
+  </picker>
+   <picker bindchange="major" range="{{useData[4].array}}" range-key='name'>
+    <view class="picker">
+      专  业 ：  {{useData[4].array[useData[4].index].name}}
+    </view>
+  </picker>
+   <picker bindchange="logic" range="{{useData[5].array}}" range-key='name'>
+    <view class="picker">
+      逻  辑 ： {{useData[5].array[useData[5].index].name}}
+    </view>
+  </picker>
+ <button class='green' bindtap="nextTap">选好了，点击查看</button>
+</view>
+

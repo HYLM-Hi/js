@@ -1,0 +1,66 @@
+<view class="section">
+  <view class="head">最适合你的职业推荐</view>
+ <!-- 导航条 -->
+ <view class="navbar">  
+ <!-- data-为自定义属性，用来嵌入自定义数据 -->
+  <!-- index() 方法返回指定元素相对于其他指定元素的 index 位置。 -->
+   <!-- bindtap="navbarTap" 为冒泡反应事件，绑定好后用来判断===index，currenTab!=0是否成立 -->
+  <text wx:for="{{name}}" wx:key="ye" data-id="{{index}}" class="item {{currenTab===index ? 'active' : ''}}" bindtap="navbarTap">{{item}}</text>  
+</view> 
+<!--第一个-->
+<!-- hidden组件是否显示，默认为显示 -->
+<!-- decode="{{true}}"让文字空格的前提，然后在需要空格处写&nbsp。必须为text标签 -->
+<view hidden='{{currenTab!=0}}'>
+<text class='list' decode="{{true}}">{{title[0]}} :&nbsp;&nbsp;{{newJob[0].threshold}}星</text>
+<text class='list' decode="{{true}}">{{title[1]}} :&nbsp;&nbsp;{{newJob[0].difficult}}星</text>
+<text class='list'decode="{{true}}">{{title[2]}} :&nbsp;&nbsp;{{newJob[0].cycle}}</text>
+<text class='list'decode="{{true}}">{{title[3]}} :&nbsp;&nbsp;{{newJob[0].company}}</text>
+<view class='list1'>
+<text class='list2'decode="{{true}}">{{title[4]}} :&nbsp;&nbsp;</text>
+<text>{{newJob[0].basis}}</text>
+</view>
+<view class='list3'>
+<text decode="{{true}}">{{title[5]}}  :&nbsp;&nbsp;</text>
+<view>
+<view wx:for='{{newSalary[0]}}' wx:key="ye">{{item.time}} 约 {{item.salary}}k</view>
+</view>
+</view>
+</view>
+
+<!--第二个-->
+<view hidden='{{currenTab!=1}}'>
+<text class='list' decode="{{true}}">{{title[0]}} :&nbsp;&nbsp;{{newJob[1].threshold}}星</text>
+<text class='list' decode="{{true}}">{{title[1]}} :&nbsp;&nbsp;{{newJob[1].difficult}}星</text>
+<text class='list' decode="{{true}}">{{title[2]}} :&nbsp;&nbsp;{{newJob[1].cycle}}</text>
+<text class='list' decode="{{true}}">{{title[3]}} :&nbsp;&nbsp;{{newJob[1].company}}</text>
+<view class='list1'>
+<text class='list2' decode="{{true}}">{{title[4]}} :&nbsp;&nbsp;</text>
+<text>{{newJob[1].basis}}</text>
+</view>
+<view class='list3'>
+<text decode="{{true}}">{{title[5]}} :&nbsp;&nbsp;</text>
+<view>
+<view wx:for='{{newSalary[1]}}' wx:key="ye">{{item.time}} 约 {{item.salary}}k</view>
+</view>
+</view>
+</view>
+
+<!--第三个-->
+<view hidden='{{currenTab!=2}}'>
+<text class='list' decode="{{true}}">{{title[0]}} :&nbsp;&nbsp;{{newJob[2].threshold}}星</text>
+<text class='list' decode="{{true}}">{{title[1]}} :&nbsp;&nbsp;{{newJob[2].difficult}}星</text>
+<text class='list' decode="{{true}}">{{title[2]}} :&nbsp;&nbsp;{{newJob[2].cycle}}</text>
+<text class='list' decode="{{true}}">{{title[3]}} :&nbsp;&nbsp;{{newJob[2].company}}</text>
+<view class='list1'>
+<text class='list2' decode="{{true}}">{{title[4]}} :&nbsp;&nbsp;</text>
+<text> {{newJob[2].basis}}</text>
+</view>
+<view class='list3'>
+<text decode="{{true}}">{{title[5]}} :&nbsp;&nbsp;</text>
+<view>
+<view wx:for= '{{newSalary[2]}}' wx:key="ye"> {{item.time}} 约 {{item.salary}}k</view>
+</view>
+</view>
+</view>
+</view>
+

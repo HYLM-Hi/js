@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/hy/hy",
+    "pages/hy2/hy2"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}
