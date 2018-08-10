@@ -1,0 +1,17 @@
+ <div class="bg-img">
+        <div class="login-container">
+    <form ng-controller="loginCtrl">
+    <div class="middle-1">后台登录</div>
+    <div class="main-middle">
+        <div class="icon1"></div>
+        <input type="text" class="middle-2" style="outline:none" placeholder="账号" id="name" ng-model="name" required>
+    </div>
+    <div class="main-middle-1 ">
+        <div class="icon2 "></div>
+        <input type="password" class="middle-3" style="outline:none" placeholder="密码" id="pwd" ng-model="pwd" required>
+    </div>
+    <div class="middle-4">{{txt}}</div>
+    <button type="submit" class="middle-5" ng-click="tohome()" id="btn" style="border:none;">登 录</button>
+    </form>
+    </div>
+ </div>

@@ -1,0 +1,149 @@
+/*公共部分*/
+.welcome{
+	background-color: #f5f5f5;
+}
+/*第一个表单*/
+.panel{
+    border-color: #ddd;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+@media (min-width: 768px){
+	.welcome{
+		float: left;
+		padding: 30px 30px 3000px 30px;
+    	margin-bottom: -3000px;
+    	width: calc(100% - 250px);
+	}
+}
+.time{
+    padding-top: 7px;
+	font-weight: 700;
+    white-space:nowrap;
+}
+@media (max-width: 992px){
+	.time{
+		float:left;
+	}
+}
+.timeList{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.timeType{
+    width:100%;
+}
+@media (min-width: 992px) {
+    .form-group {
+        margin: 0 -15px 15px;
+    }
+}
+@media (max-width: 992px) {
+    .form-group {
+        padding: 0;
+    }
+}
+
+/*第二个表单*/
+.article-left{
+    margin-left: 15px;
+    float: left;
+    font-weight: 700;
+}
+.article-right{
+    margin-right: 15px;
+    float: right;
+}
+.btn-xs{
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.pb-ground{
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+}
+.add-table-border{
+    border: 1px solid #eeeeee;
+    width: 100%;
+}
+.add-table-border>thead>tr>th{
+    padding: 8px;
+    text-align: center;
+}
+.add-table-border>tbody>tr>td{
+    padding: 8px;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+/*详细列表*/
+.add-table-article{
+    width: 100%;
+    border-bottom: 2px solid #efefef;
+}
+.add-table-article>thead>tr>th{
+    padding: 8px;
+    text-align: center;
+}
+
+
+/*分页插件*/
+.list-pagination{
+width: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 3rem;
+}
+.list-pagebox {
+    width: 3rem;
+    text-align: center;
+}
+.ng-scope>td>img{
+    height: 40px;
+}
+.timeFist{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*富文本编辑器自适应*/
+.edui-editor{
+    width: auto !important;
+}
+.edui-editor-iframeholder{
+    width: auto !important;
+}
+
+
+/*图片居中*/
+.add-table-article>tbody>tr>td{
+    text-align: center;
+}
+
+/*新增页面*/
+.form-horizontal .form-group{
+    margin-left:0;
+    margin-right:0;
+}

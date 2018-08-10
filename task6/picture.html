@@ -1,0 +1,40 @@
+<div class="col-md-offset-2 col-md-10 col-sm-12 col-xs-12">
+    <table class="table add-table-article">
+        <thead>
+        <tr>
+            <th>图片名</th>
+            <th>文件大小</th>
+            <th>进度</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-show="detailDataShow">
+            <td>{{theName}}</td>
+            <td>{{theSize}}</td>
+            <td>
+                <div class="progress" ng-hide="detailOldProgress"></div>
+                <div ng-show="detailNewProgress">
+                    <!--进度条组件-->
+                    <uib-progressbar type="info" animate="ture">{{val}}%</uib-progressbar>
+                </div>
+            </td>
+            <td>
+                <div ng-show="detailTips">
+                    <!--打勾图标样式-->
+                    <span class="glyphicon glyphicon-ok"></span>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" ng-click="detailUpDown()" ng-disabled="detailUp">
+                    <span class="glyphicon glyphicon-upload"></span>&nbsp;上传
+                </button>
+                <button type="button" class="btn btn-danger" ng-click="detailDelete()">
+                    <span class="glyphicon glyphicon-trash"></span>&nbsp;删除
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

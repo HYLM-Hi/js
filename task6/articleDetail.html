@@ -1,0 +1,101 @@
+<div class="welcome" ng-controller="detailCtrl" border="1">
+    <div class="panel">
+        <div class="panel-body pb-ground">
+            <div class="row">
+                <div class="article-left">{{article}}</div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="myForm">
+            <div class="row">
+                <div class="form-group col-md-11 col-sm-12 col-xs-12">
+                    <div class="time col-md-2" style="text-align: right">标题名称</div>
+                    <div class="col-md-10">
+                        <input type="text" class="timeFist" ng-model="detailTheTitle" placeholder>
+                    </div>
+                </div>
+                <div class="form-group col-md-11 col-sm-12 col-xs-12">
+                    <div class="time col-md-2" style="text-align: right">类&#8195;&#8195;型</div>
+                    <div class="col-md-3">
+                        <select class="timeFist" name="" ng-model="detailTheOptions" required>
+                            <option value="">请选择</option>
+                            <!--ng-selected用来绑定表单信息，这个指令不被浏览器删除，并且提供了一个永久性的可靠的地方来储存绑定信息-->
+                            <option ng-repeat="(x,y) in types" value="{{x}}" ng-selected="detailTheOptions==x" required>{{y}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="timeFist" name="" ng-model="detailTheSecondOptions" ng-show="detailTheOptions==3">
+                            <option value="">请选择</option>
+                            <option ng-repeat="(x,y) in industry" value="{{x}}" ng-selected="detailTheSecondOptions==x" required>{{y}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-11 col-sm-12 col-xs-12">
+                    <div class="time col-md-2" style="text-align: right">说&#8195;&#8195;明</div>
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                        <div class="ueditor" ng-model="content" required></div>
+                    </div>
+                </div>
+                <div class="form-group col-md-11 col-sm-12 col-xs-12">
+                    <div class="time col-md-2" style="text-align: right">跳转链接</div>
+                    <div class="col-md-10">
+                        <input type="text" class="timeFist" ng-model="detailTheLink" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-11 col-sm-12 col-xs-12">
+                    <div class="time col-md-2" style="text-align: right">配&#8195;&#8195;图</div>
+                    <div class="col-md-10 col-sm-12 col-xs-12">
+                        <label for="detailFile" class="btn btn-primary">选择文件</label>
+                        <form>
+                            <input id="detailFile"
+                                   type="file"
+                                   name="pic"
+                                   accept="image/png, image/jpeg, image/gif, image/jpg"
+                                   onchange="angular.element(this).scope().getValue(this)"
+                                   style="display: none"><!--element返回指定元素，scope为事件绑定函数，getValue获得当前图片描述信息-->
+                        </form>
+                    </div>
+                    <!--ng-hide隐藏显示为ture与false，ng-show同理-->
+                    <div ng-hide="detailSmallPic">
+                        <div class="col-xs-12 col-sm-12 col-md-2 ">
+                            <div class="row"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="detail-show"><img alt=""></div>
+                        </div>
+                    </div>
+
+                    <div ng-show="detailBigPic">
+                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                            <div class="row"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="detail-show">
+                                <img ng-src="{{detailImgUrl}}" width="300" height="300">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div my-pic></div>
+
+                    <div class="col-md-offset-2 col-md-10 col-sm-12 col-xs-12">
+                        <button type="button" class="btn btn-success"
+                                ng-click="detailToUp()"
+                                ng-disabled="myForm.$invalid || detailImgUrl == undefined">
+                                立即上线
+                        </button>
+                        <button type="button" class="btn btn-success"
+                                ng-click="detailSave()"
+                                ng-disabled="myForm.$invalid || detailImgUrl == undefined">
+                                存为草稿
+                        </button>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default" ui-sref="home.list">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

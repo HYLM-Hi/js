@@ -1,0 +1,137 @@
+<div class="welcome" ng-controller="listForm" border="1" >
+    <div class="panel">
+        <div class="panel-body">
+    <div class="row">
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="time col-md-4" style="text-align: center">发布时间</div>
+            <div class="col-md-8">
+                    <input type="text"
+                           uib-datepicker-popup="yyyy-MM-dd"
+                           datepicker-options="{maxDate:listDateEnd,showWeeks:false}"
+                           ng-model="listDateStart"
+                           ng-click="open1()"
+                           is-open= "popup1.opened"
+                           close-text="关闭"
+                           clear-text="清空"
+                           current-text="今天"
+                           alt-input-formats="yyyy-MM-dd"
+                           class="timeList"
+                           >
+            </div>
+        </div>
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="time col-md-4" style="text-align: center">——</div>
+            <div class="col-md-8">
+                    <input type="text"
+                       uib-datepicker-popup="yyyy-MM-dd"
+                       datepicker-options="{minDate:listDateStart,showWeeks:false}"
+                       ng-model="listDateEnd"
+                       ng-click="open2()"
+                       is-open= "popup2.opened"
+                       close-text="关闭"
+                       clear-text="清空"
+                       current-text="今天"
+                       alt-input-formats="yyyy-MM-dd"
+                       class="timeList">
+            </div>
+        </div>
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="time col-md-4" style="text-align: center">类 型</div>
+            <div class="col-md-8">
+                <select class="form-control" ng-model="listTheType">
+                    <option value="">全部</option>
+                    <option ng-repeat="(x,y) in types" value="{{x}}">{{y}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="time col-md-4" style="text-align: center">状 态</div>
+            <div class="col-md-8">
+                <select class="form-control" ng-model="listTheStatus">
+                    <option value="">全部</option>
+                    <option ng-repeat="(x,y) in status" value="{{x}}">{{y}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+            <div class="row">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-danger" ng-click="clean()">清空</button>
+                    <button type="button" class="btn btn-success" ng-click="search()">搜索</button>
+                </div>
+            </div>
+    </div>
+    </div>
+    <div class="panel">
+        <div class="panel-body pb-ground">
+        <div class="row">
+            <div class="article-left">Article列表</div>
+            <div class="article-right">
+                <button type="button" class="btn btn-success btn-xs" ui-sref="home.articleDetail">+新增</button>
+            </div>
+            </div>
+        </div>
+        <div class="panel-body table-responsive">
+            <table class="add-table-border">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>图片</th>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>发布时间</th>
+                    <th>修改时间</th>
+                    <th>发布者</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in articleList" class="ng-scope">
+                    <td>{{$index+1}}</td>
+                    <td><img src="{{item.img}}"></td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.type | reverse}}</td><!--  | 为筛选过滤器   -->
+                    <td>{{item.createAt | date:'yyyy-MM-dd'}}<br>{{item.createAt | date:'HH:mm:ss'}}</td>
+                    <td>{{item.updateAt | date:'yyyy-MM-dd'}}<br>{{item.updateAt | date:'HH:mm:ss'}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.status| draft}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="listUpDown()">{{item.status | online}}</button>
+                        <button type="button" class="btn btn-primary" ng-click="listEdit()">编辑</button>
+                        <button type="button" class="btn btn-danger" ng-click="listDelete()">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <tm-pagination conf="paginationConf"></tm-pagination>
+    <div class="list-pagination">
+        每页显示<input type="text"
+                   class="list-pagebox"
+                   ng-model="currentSize"
+                   pattern="[0-9]*">条
+        <ul uib-pagination
+            total-items="totalItems"
+            ng-model="currentPage"
+            max-size="5"
+            items-per-page="currentSize"
+            force-ellipses="true"
+            first-text="首页"
+            previous-text="<"
+            next-text=">"
+            last-text="末页"
+            boundary-links="true"
+            boundary-link-numbers="true"
+            ng-click="listPickPage()"
+            style="margin: 0px 1rem;">
+        </ul>
+        去第<input type="text" class="list-pagebox"
+                 ng-model="listPagePicker"
+                 pattern="[0-9]*">页
+        <button type="button" class="btn btn-default" ng-click="listToShow()">确定</button>
+    </div>
+</div>
+
+

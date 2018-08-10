@@ -1,0 +1,152 @@
+<div class="wrapper" ng-controller="homeCtrl">
+    <nav class="navbar">
+        <button type="button" class="navbar-toggle-button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="topbar-brand">萝卜多后台管理系统</div>
+        <div class="topbar-content">
+            <ui class="navbar-right">
+                <li class="pull-right">
+                    <a class="dropdown-character">
+                        <span class="ng-binding">管理员</span>
+                    </a>
+                    <span class="vertical">|</span>
+                    <a class="dropdown-name">
+                        <span class="ng-binding">admin</span>
+                    </a>
+                    <span class="vertical">|</span>
+                    <a class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-off" ng-click="toback()"></span>
+                    </a>
+                </li>
+            </ui>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <!--<div class="sidebar-nav navbar-collapse collapse" aria-expanded="false" style="height: 1px;">-->
+            <!--<dl class="list_dl">-->
+                <!--<dt class="list_dt">-->
+                    <!--<span class="_after"></span>-->
+                    <!--<i class="fa  fa-pencil"></i>-->
+                    <!--<p>公司列表</p>-->
+                    <!--<i class="list_dt_icon"></i>-->
+                <!--</dt>-->
+                <!--<dd class="list_dd">-->
+                    <!--<ul>-->
+                        <!--<li class="list_li">娃哈哈</li>-->
+                        <!--<li class="list_li">营养快线</li>-->
+                        <!--<li class="list_li">肥宅快乐水</li>-->
+                        <!--<li class="list_li">青岛纯生</li>-->
+                    <!--</ul>-->
+                <!--</dd>-->
+                <!--<dt class="list_dt">-->
+                    <!--<span class="_after"></span>-->
+                    <!--<p>职位列表</p>-->
+                    <!--<i class="list_dt_icon"></i>-->
+                <!--</dt>-->
+                <!--<dd class="list_dd">-->
+                    <!--<ul>-->
+                        <!--<li class="list_li">1</li>-->
+                        <!--<li class="list_li">removeAttr</li>-->
+                        <!--<li class="list_li">prop</li>-->
+                        <!--<li class="list_li">removeProp</li>-->
+                        <!--<li class="list_li">addClass</li>-->
+                        <!--<li class="list_li">removeClass</li>-->
+                    <!--</ul>-->
+                <!--</dd>-->
+                <!--<dt class="list_dt">-->
+                    <!--<span class="_after"></span>-->
+                    <!--<p>Article管理</p>-->
+                    <!--<i class="list_dt_icon"></i>-->
+                <!--</dt>-->
+                <!--<dd class="list_dd">-->
+                    <!--<ul>-->
+                        <!--<li class="list_li"><a class="list_li"  ui-sref="home.list" style="color:white;text-decoration:none;">article列表</a></li>-->
+                    <!--</ul>-->
+                <!--</dd>-->
+                <!--<dt class="list_dt">-->
+                    <!--<span class="_after"></span>-->
+                    <!--<p>Article列表</p>-->
+                    <!--<i class="list_dt_icon"></i>-->
+                <!--</dt>-->
+                <!--<dd class="list_dd">-->
+                    <!--<ul>-->
+                        <!--<li class="list_li">ready</li>-->
+                        <!--<li class="list_li">on</li>-->
+                        <!--<li class="list_li">off</li>-->
+                        <!--<li class="list_li">bind</li>-->
+                        <!--<li class="list_li">one</li>-->
+                        <!--<li class="list_li">trigger</li>-->
+                        <!--<li class="list_li">hover</li>-->
+                        <!--<li class="list_li">click</li>-->
+                        <!--<li class="list_li">focus</li>-->
+                    <!--</ul>-->
+                <!--</dd>-->
+                <!--<dt class="list_dt">-->
+                    <!--<span class="_after"></span>-->
+                    <!--<p>用户管理</p>-->
+                    <!--<i class="list_dt_icon"></i>-->
+                <!--</dt>-->
+                <!--<dd class="list_dd">-->
+                    <!--<ul>-->
+                        <!--<li class="list_li">$.ajax</li>-->
+                        <!--<li class="list_li">$.get</li>-->
+                        <!--<li class="list_li">$.getJSON</li>-->
+                        <!--<li class="list_li">$.getScript</li>-->
+                        <!--<li class="list_li">$.post</li>-->
+                    <!--</ul>-->
+                <!--</dd>l-->
+
+            <!--</dl>-->
+        <!--</div>-->
+
+        <div class="sidebar-nav navbar-collapse collapse" aria-expanded="false" style="height: 1px;" ng-repeat="x in sideBar">
+            <!--下拉栏-->
+            <div class="home-sidebar-title"
+                 ng-click="getHomeTitle($index)"><!--点击按钮事件，将数据按序号排列-->
+                <span class="glyphicon glyphicon-pencil icon"></span><!--铅笔图标-->
+                <span>{{x.sideBarTitle}}</span><!--一级菜单-->
+                <span ng-class="ggtitle == $index?'glyphicon glyphicon-menu-down':'glyphicon glyphicon-menu-right'"></span><!--三元运算符。箭头图标，如果ggtitle等于$index则箭头指向下-->
+            </div>
+            <!--ng-show点击一级菜单出现二级菜单-->
+            <!--ng-reoeat y in x。 y从x父级下的菜单中遍历-->
+            <!-- $parent遍历 查找每个段落的带有"XXX"类的父元素。$index 将数据按序号排列-->
+            <!-- ng-class给 HTML 元素动态绑定一个或多个 CSS 类，保持被选中时高亮状态-->
+            <!-- ui-sref跳转遍历连接-->
+            <div class="home-sidebar-content"
+                 ng-show="ggtitle == $parent.$index"
+                 ng-repeat="y in x.sideBarContent"
+                 ng-click="getHomeContent(y.sideBarName, $parent.$index)"
+                 ng-class="{tcontent: ggcontent === y.sideBarName}">
+                <!--二级菜单-->
+                <a href="" ui-sref="{{y.url}}">
+                    <!-- 遍历y中sideBarName的内容（文字）-->
+                    <span>{{y.sideBarName}}</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- 主内容页面 -->
+    <div data-ui-view>
+        <div class="welcome">
+            <div class="margin0px">
+                <h1>{{hello}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script type="text/javascript">-->
+    <!--$(".list_dt").on("click", function () {-->
+        <!--$('.list_dd').stop();-->
+        <!--$(this).siblings("dt").removeAttr("id");-->
+        <!--if ($(this).attr("id") == "open") {-->
+            <!--$(this).removeAttr("id").siblings("dd").slideUp();-->
+        <!--} else {-->
+            <!--$(this).attr("id", "open").next().slideDown().siblings("dd").slideUp();-->
+        <!--}-->
+    <!--});-->
+<!--</script>-->
