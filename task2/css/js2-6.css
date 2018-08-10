@@ -1,0 +1,152 @@
+*{margin: 0;}
+
+html{height: 100%;
+	font-size: 62.5%;
+	color: black;
+    background-color: #29bde0;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 16rem;
+	background: #29bde0;
+}
+main{
+	display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 15rem 4vw 12rem;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	height: 10rem;
+    width: 100%;
+    background: #29bde0;
+}
+.headmark{
+    position: fixed;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 100%;
+    height: 7rem;
+    top: 0rem;
+    border-bottom: 1px solid white;
+    color: white;
+    background: #29bde0;
+    z-index: 1;
+}
+.header-middle{
+	font-size: 2.5rem;
+}
+.header-left{
+	padding: 0 1rem;
+	font-size: 3rem;
+	cursor: pointer;
+}
+.header-right{
+	width: 2rem;
+	padding: 0 11px;
+	margin: 0 2rem 0 0;
+}
+.declaration{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    top: 6rem;
+    font-size: 1.5rem;
+    text-indent: 5%;
+    white-space: nowrap;
+    background-color: #b9e9f5;
+    z-index: 2;
+}
+.declaration-1{
+    position: fixed;
+    top: 11rem;
+    height: 0;
+    margin: 0 0 0 5%;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #b9e9f5 transparent transparent transparent;
+}
+.declaration-2{
+    position: fixed;
+    top: 12rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+    text-indent: 5%;
+    background: #29bde0;
+    white-space: nowrap;
+}
+.main-box{
+	top: 13rem;
+    margin: 4vw 3.3vw;
+    background-color: white;
+    height: 26vw;
+}
+
+.main-box-1{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	margin: 1vw 1vw 0;
+    height: 18vw;
+    font-size: 2rem;
+    background-color: #f5c97b;
+}
+.main-box-2{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	margin: 0 1vw;
+    background-color: #83b09a;
+    font-size: 1.5rem;
+    width: 22vw;
+    height: 6vw;
+    color: white;
+}
+.main-box-3 {
+    display: none;
+    position: relative;
+    width: 100%;
+    top: 3vw; 
+}
+.main-box-4{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.main-box-4>img{
+    zoom: 0.6;
+}
+@media (min-width:768px){
+    .main-box-4>img{
+        zoom:1;
+    }
+}
+.deal{
+	position: fixed;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 6rem;
+    margin: 0 10%;
+    font-size: 2.5rem;
+    bottom: 2rem;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
