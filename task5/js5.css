@@ -1,0 +1,85 @@
+html{height: 100%;
+	font-size: 62.5%;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(03.png);
+    background-size: 100vw 100vh;
+}
+main{
+	position: relative;
+    top: 18rem;
+    width: 40rem;
+    height: 30rem;
+	background: rgba(225, 225, 225, 0.7);
+}
+.main-middle{
+	display: flex;
+	align-items: center;
+	width: 80%;
+	margin: 0 10% 2rem 10%;
+	background: white;
+}
+.main-middle-1{
+	display: flex;
+	align-items: center;
+	width: 80%;
+	margin: 0 10%;
+	background: white;
+}
+.middle-1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 8rem;
+	font-size: 2rem;
+	color: #03a9f4;
+}
+.middle-2{
+	width:80%;
+	height:2rem;
+    border:solid white;
+    text-indent: 1rem;
+    border-left: 1px solid rgba(225, 225, 225, 0.7);
+}
+.middle-3{
+	width:80%;
+	height:2rem;
+    border:solid white;
+    text-indent: 1rem;
+    border-left: 1px solid rgba(225, 225, 225, 0.7);
+}
+.middle-4{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	width: 100%;
+	font-size: 2rem;
+	color: red;
+}
+.middle-5{
+	width: 80%;
+	height:5.5rem;
+	margin: 0 10%;
+	border-radius: 5px; 
+	background-color:#03a9f4;
+	color: white;
+	align-items:center;
+}
+.icon1{
+	width: 3rem;
+    height: 4rem;
+	background-image: url(01.png);
+    background-position: 0.5rem 1.1rem;
+    background-repeat: no-repeat;
+}
+.icon2{
+	width: 3rem;
+    height: 4rem;
+    background-image: url(02.png);
+    background-position: 0.6rem 1.1rem;
+    background-repeat: no-repeat;
+}
